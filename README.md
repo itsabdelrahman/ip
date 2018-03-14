@@ -1,6 +1,6 @@
 <h1 align="center">ip</h1>
 
-<p align="center">Get your internal & external IPs in one command</p>
+<p align="center">Get your internal & external IPs in one command <i>(macOS only)</i></p>
 
 ## Usage
 ```bash
