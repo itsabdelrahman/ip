@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-version="0.1.0"
+version="0.2.0"
 
 # Verbose by default
 if [ -t 1 ]; then
@@ -42,10 +42,16 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do
 done
 if [[ "$1" == "--" ]]; then shift; fi
 
+# Check internet connectivity
+if ! ping -c 1 google.com >> /dev/null 2>&1; then
+  echo "\033[96m ✗ You're offline! \033[96m"
+  exit 1
+fi
+
 # Print waiting message
 if [ $verbose ]; then
   echo ""
-  echo "\033[90m … Getting internal & external IPs \033[39m"
+  echo "\033[90m Getting internal & external IPs… \033[39m"
   echo ""
 fi
 
@@ -54,8 +60,8 @@ external=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 # Print results
 if [ $verbose ]; then
-  echo "\033[96m ✓ Internal IP: \"$internal\" \033[39m"
-  echo "\033[96m ✓ External IP: \"$external\" \033[39m"
+  echo "\033[96m ✓ Internal IP: $internal \033[39m"
+  echo "\033[96m ✓ External IP: $external \033[39m"
 else
   echo $internal
   echo $external
