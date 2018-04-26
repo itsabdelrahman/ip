@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-version="0.1.0"
+version="0.2.0"
 
 # Verbose by default
 if [ -t 1 ]; then
