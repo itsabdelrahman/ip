@@ -54,8 +54,8 @@ external=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 # Print results
 if [ $verbose ]; then
-  echo "\033[96m ✓ Internal IP: \"$internal\" \033[39m"
-  echo "\033[96m ✓ External IP: \"$external\" \033[39m"
+  echo "\033[96m ✓ Internal IP: $internal \033[39m"
+  echo "\033[96m ✓ External IP: $external \033[39m"
 else
   echo $internal
   echo $external
