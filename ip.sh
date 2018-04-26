@@ -42,6 +42,12 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do
 done
 if [[ "$1" == "--" ]]; then shift; fi
 
+# Check internet connectivity
+if ! ping -c 1 google.com >> /dev/null 2>&1; then
+  echo "\033[96m ✗ You're offline! \033[96m"
+  exit 1
+fi
+
 # Print waiting message
 if [ $verbose ]; then
   echo ""
