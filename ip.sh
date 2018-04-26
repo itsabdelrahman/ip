@@ -45,7 +45,7 @@ if [[ "$1" == "--" ]]; then shift; fi
 # Print waiting message
 if [ $verbose ]; then
   echo ""
-  echo "\033[90m … Getting internal & external IPs \033[39m"
+  echo "\033[90m Getting internal & external IPs… \033[39m"
   echo ""
 fi
 
