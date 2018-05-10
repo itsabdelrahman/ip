@@ -50,20 +50,20 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   macOS=
   linux=1
 else
-  echo "\033[96m ✗ Unsupported operating system! \033[96m"
+  echo -e "\033[96m ✗ Unsupported operating system!"
   exit 1
 fi
 
 # Check internet connectivity
 if ! ping -c 1 google.com >> /dev/null 2>&1; then
-  echo "\033[96m ✗ You're offline! \033[96m"
+  echo -e "\033[96m ✗ You're offline!"
   exit 1
 fi
 
 # Print waiting message
 if [ $verbose ]; then
   echo ""
-  echo "\033[90m Getting internal & external IPs… \033[39m"
+  echo -e "\033[90m Getting internal & external IPs…"
   echo ""
 fi
 
@@ -77,8 +77,8 @@ external=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 # Print results
 if [ $verbose ]; then
-  echo "\033[96m ✓ Internal IP: $internal \033[39m"
-  echo "\033[96m ✓ External IP: $external \033[39m"
+  echo -e "\033[96m ✓ Internal IP: $internal"
+  echo -e "\033[96m ✓ External IP: $external"
 else
   echo $internal
   echo $external
