@@ -42,6 +42,18 @@ while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do
 done
 if [[ "$1" == "--" ]]; then shift; fi
 
+# Check operating system
+if [ "$(uname)" == "Darwin" ]; then
+  macOS=1
+  linux=
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  macOS=
+  linux=1
+else
+  echo "\033[96m ✗ Unsupported operating system! \033[96m"
+  exit 1
+fi
+
 # Check internet connectivity
 if ! ping -c 1 google.com >> /dev/null 2>&1; then
   echo "\033[96m ✗ You're offline! \033[96m"
@@ -55,7 +67,12 @@ if [ $verbose ]; then
   echo ""
 fi
 
-internal=$(ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}')
+if [ $macOS ]; then
+  internal=$(ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}')
+elif [ $linux ]; then
+  internal=$(hostname -I)
+fi
+
 external=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 # Print results
