@@ -60,10 +60,10 @@ if ! ping -c 1 google.com >> /dev/null 2>&1; then
   exit 1
 fi
 
-# Print waiting message
+# Print loading message
 if [ $verbose ]; then
   echo ""
-  echo -e "\033[90m Getting internal & external IPs…"
+  echo -e "\033[90m Getting internal & external IP addresses…"
   echo ""
 fi
 
