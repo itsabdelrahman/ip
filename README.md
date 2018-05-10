@@ -4,14 +4,10 @@
 </div>
 
 ## Usage
-```bash
-❯ ./ip.sh
 
- Getting internal & external IP addresses...
-
- ✓ Internal IP: 192.168.1.113
- ✓ External IP: 156.223.105.36
-```
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/11808903/39890619-9c3aba3a-549b-11e8-8174-932e1bec4002.gif" width="650" style="border-radius: 8px"/>
+</p>
 
 ## License
 

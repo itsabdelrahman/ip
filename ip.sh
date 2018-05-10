@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-version="1.0.0"
+version="1.0.1"
 
 # Verbose by default
 if [ -t 1 ]; then
@@ -50,20 +50,20 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   macOS=
   linux=1
 else
-  echo -e "\033[96m ✗ Unsupported operating system!"
+  echo -e "\033[91m ✗ Unsupported operating system! \033[0m"
   exit 1
 fi
 
 # Check internet connectivity
 if ! ping -c 1 google.com >> /dev/null 2>&1; then
-  echo -e "\033[96m ✗ You're offline!"
+  echo -e "\033[91m ✗ You're offline! \033[0m"
   exit 1
 fi
 
 # Print loading message
 if [ $verbose ]; then
   echo ""
-  echo -e "\033[90m Getting internal & external IP addresses…"
+  echo -e "\033[90m Getting internal & external IP addresses… \033[0m"
   echo ""
 fi
 
@@ -77,8 +77,8 @@ external=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 # Print results
 if [ $verbose ]; then
-  echo -e "\033[96m ✓ Internal IP: $internal"
-  echo -e "\033[96m ✓ External IP: $external"
+  echo -e "\033[96m ✓ Internal IP: $internal \033[0m"
+  echo -e "\033[96m ✓ External IP: $external \033[0m"
 else
   echo $internal
   echo $external
