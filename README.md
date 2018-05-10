@@ -6,7 +6,7 @@
 ## Usage
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/11808903/39890619-9c3aba3a-549b-11e8-8174-932e1bec4002.gif" width="700" style="border-radius: 8px"/>
+  <img src="https://user-images.githubusercontent.com/11808903/39890619-9c3aba3a-549b-11e8-8174-932e1bec4002.gif" width="650" style="border-radius: 8px"/>
 </p>
 
 ## License
